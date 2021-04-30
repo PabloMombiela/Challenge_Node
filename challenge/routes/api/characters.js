@@ -4,8 +4,8 @@ let charactersApiController = require ('../../controllers/api/charactersControll
 
 
 
-router.get('/', charactersApiController.list)
-router.get('/create', charactersApiController.create)
+router.get('/list', charactersApiController.list)
+router.get('/', charactersApiController.create)
 router.get('/:id', charactersApiController.detail)
 
 

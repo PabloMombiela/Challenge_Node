@@ -1,11 +1,27 @@
-const charactersApiController = {
+const db = require("../../database/models")
 
 
-    list: (req, res) => {
-        res.send('mickey, donald, pluto');
+
+let charactersApiController = {
 
 
-    },
+    
+        list (req, res, next) {
+
+            db.Characters.findAll({
+                attributes: [ "name", "avatar"]
+            }).then(function (Characters) {
+                
+                res.render("listCharacters", {Characters:Characters})
+                
+                  
+                });
+                 
+                
+                
+    
+                
+        },
 
     detail:(req,res) => {
 
@@ -14,7 +30,7 @@ const charactersApiController = {
 
     create: (req, res) => {
 
-        res.send( 'Create charracter')
+        res.send( 'Create character')
     }
     
 
